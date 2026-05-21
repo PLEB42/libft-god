@@ -5,7 +5,7 @@
 ###################################
 
 #Edit the next line with the path of your libft project.
-PATH_LIBFT="/mnt/arquivos/TODOS_OS_PROJETOS/42-library/projects/milestone_1/libft"
+PATH_LIBFT=""
 
 #If you use a relative path, don't put double quotes.
 #For example :
