@@ -8,6 +8,8 @@ exec 2> /dev/null
 
 source "${PATH_TEST}"/srcs/variables.sh
 
+IS_SINGLE_FUNCTION=0
+
 for arg in ${@}
 do
 	case "${arg}" in
@@ -45,12 +47,14 @@ do
 		"-p3")                          OPT_NO_PART3=1
 		                                        CHECK_IN_PART3=0 ;;
 
-		*ft_*)	for part in ${tab_all_part[*]}
+		*ft_*)	IS_SINGLE_FUNCTION=1
+				for part in ${tab_all_part[*]}
 				do
 					check_part=$(echo CHECK_IN_${part} | tr '[:lower:]' '[:upper:]' | rev | cut -c 6- | rev)
 					if [ ${!check_part} -eq 1 ]
 					then
-						#opt_part=$(echo OPT_NO_${part} | tr '[:lower:]' '[:upper:]' | rev | cut -c 6- | rev)
+						opt_part_var=$(echo OPT_NO_${part} | tr '[:lower:]' '[:upper:]' | rev | cut -c 6- | rev)
+						eval "${opt_part_var}=1"
 						p=0
 						activate_part=$(echo ACTIVATE_${part} | tr '[:lower:]' '[:upper:]' | rev | cut -c 6- | rev)
 						tab_part=$(echo ${part}[*])
@@ -61,13 +65,6 @@ do
 							if [ "$(echo ${arg} | sed 's/_bonus//g' | grep -ow $(echo ${!func_name} | cut -d . -f 1 | sed 's/_bonus//g'))" != "" ]
 							then
 								(( ${part}_activation[$p]=1 ))
-								#(( ${opt_part}=1 ))
-								#####################
-								OPT_NO_PART1=1
-								OPT_NO_PART2=1
-								OPT_NO_BONUS=1
-								OPT_NO_ADDITIONAL=1
-								#############################
 								(( ${activate_part}=1 ))
 								break
 							fi
@@ -190,22 +187,22 @@ fi
 
 if [ ${OPT_NO_SEARCH} -eq 0 ]
 then
-        func_check_file
+	if [ ${IS_SINGLE_FUNCTION} -eq 0 ]
+	then
+		func_check_file
+	fi
 fi
 if [ ${OPT_NO_LIBRARY} -eq 0 ]
 then
-        func_compil_lib
+	if [ ${IS_SINGLE_FUNCTION} -eq 1 ]
+	then
+		printf "\n${COLOR_PART}─── Compiling libft.a (Single Function Mode) ───${DEFAULT}\n"
+		printf "\n$> make all bonus\n" >> "${PATH_DEEPTHOUGHT}"/deepthought
+		make --no-print-directory -C "${PATH_LIBFT}" all bonus >> "${PATH_DEEPTHOUGHT}"/deepthought 2>&1
+	else
+		func_compil_lib
+	fi
 fi
-
-# Calcular total de funções para o estilo progressivo
-GLOBAL_TOTAL=0
-GLOBAL_CURRENT=0
-for part in ${tab_all_part[*]}
-do
-    tab_part=$(echo ${part}[*])
-    nb_func=$(echo ${!tab_part} | wc -w)
-    let "GLOBAL_TOTAL += nb_func"
-done
 
 for part in ${tab_all_part[*]}
 do
@@ -214,7 +211,34 @@ do
         if [ ${!opt_part} -eq 0 ]
         then
                 (( ${activate_part}=1 ))
+		p=0
+		tab_part=$(echo ${part}[*])
+		nb_func=$(echo ${!tab_part} | wc -w)
+		while (( p < ${nb_func} ))
+		do
+			(( ${part}_activation[$p]=1 ))
+			(( p += 1 ))
+		done
         fi
+done
+
+# Calcular total de funções para o estilo progressivo
+GLOBAL_TOTAL=0
+GLOBAL_CURRENT=0
+for part in ${tab_all_part[*]}
+do
+    activate_part=$(echo ACTIVATE_${part} | tr '[:lower:]' '[:upper:]' | rev | cut -c 6- | rev)
+    if [ ${!activate_part} -eq 1 ]
+    then
+	activation_tab=$(echo ${part}_activation[*])
+	for act in ${!activation_tab}
+	do
+		if [ $act -eq 1 ]
+		then
+			let "GLOBAL_TOTAL += 1"
+		fi
+	done
+    fi
 done
 
 if [ -e "${PATH_LIBFT}/${HEADER_DIR}/libft.h" ]
