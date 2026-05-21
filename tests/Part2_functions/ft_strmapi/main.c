@@ -1,11 +1,3 @@
- /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/28 12:34:20 by jtoty             #+#    #+#             */
-/*   Updated: 2026/05/19 21:07:42  
-
- /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/28 12:34:20 by jtoty             #+#    #+#             */
-/*   Updated: 2026/05/19 21:07:00  
-
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>

@@ -1,7 +1,3 @@
- /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/28 12:35:29 by jtoty             #+#    #+#             */
-/*   Updated: 2026/05/18 21:38:05  
-
 #include <stdlib.h>
 #include <unistd.h>
 #include "../../../libft.h"
