@@ -14,7 +14,7 @@ void	ft_print_result(char const *s)
 
 int		main(int argc, const char *argv[])
 {
-	char	**tabstr;
+	char	**tabstr = NULL;
 	int		i;
 	int		arg;
 
@@ -197,6 +197,16 @@ int		main(int argc, const char *argv[])
                 i++;
             }
         }
+    }
+    if (tabstr != NULL)
+    {
+        i = 0;
+        while (tabstr[i] != NULL)
+        {
+            free(tabstr[i]);
+            i++;
+        }
+        free(tabstr);
     }
 	return (0);
 }

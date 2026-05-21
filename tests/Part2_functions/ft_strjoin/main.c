@@ -15,7 +15,7 @@ int main(int argc, const char *argv[])
 {
     char    s1[32];
     char    s2[32];
-    char    *strjoin;
+    char    *strjoin = NULL;
     int     arg;
 
     alarm(5);
@@ -110,7 +110,6 @@ int main(int argc, const char *argv[])
         else
             ft_print_result(strjoin);   // ← AQUI é a STRING, não "OK"
 
-        free(strjoin);
         free(long1);
         free(long2);
     }
@@ -123,8 +122,8 @@ int main(int argc, const char *argv[])
             ft_print_result("OK");
         else
             ft_print_result("FAIL");
-        if (strjoin)
-            free(strjoin);
     }
+    if (strjoin != NULL)
+        free(strjoin);
     return (0);
 }

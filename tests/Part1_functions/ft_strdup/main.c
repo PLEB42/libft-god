@@ -16,7 +16,7 @@ void	ft_print_result(char const *s)
 int		main(int argc, const char *argv[])
 {
 	char	str[] = "lorem ipsum dolor sit amet";
-	char	*str_dup;
+	char	*str_dup = NULL;
 
 	alarm(5);
 	if (argc == 1)
@@ -91,7 +91,6 @@ int		main(int argc, const char *argv[])
 		else
 		{
 			ft_print_result("OK");
-			free(str_dup);
 		}
 	}
 	else if (atoi(argv[1]) == 9)
@@ -104,5 +103,7 @@ int		main(int argc, const char *argv[])
 		else
 			ft_print_result("FAIL");
 	}
+	if (str_dup != NULL)
+        free(str_dup);
 	return (0);
 }

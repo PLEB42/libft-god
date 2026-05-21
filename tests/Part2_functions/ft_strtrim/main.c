@@ -14,7 +14,7 @@ void	ft_print_result(char const *s)
 
 int		main(int argc, const char *argv[])
 {
-	char	*strtrim;
+	char	*strtrim = NULL;
 	int		arg;
 
 	alarm(5);
@@ -158,5 +158,6 @@ int		main(int argc, const char *argv[])
         if (strtrim == s1)
             ft_print_result("\nA new string was not returned");
     }
+    free(strtrim);
 	return (0);
 }

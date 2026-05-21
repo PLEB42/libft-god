@@ -15,7 +15,7 @@ void	ft_print_result(char const *s)
 int		main(int argc, const char *argv[])
 {
 	char	str[] = "lorem ipsum dolor sit amet";
-	char	*strsub;
+	char	*strsub = NULL;
 	int		arg;
 
 	alarm(5);
@@ -132,5 +132,7 @@ int		main(int argc, const char *argv[])
         if (str2 == strsub)
             ft_print_result("\nA new string was not returned");
     }
+	if (strsub != NULL)
+        free(strsub);
 	return (0);
 }

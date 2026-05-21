@@ -31,7 +31,7 @@ char	mapi(unsigned int i, char c)
 int	main(int argc, const char *argv[])
 {
 	char	*str;
-	char	*strmapi;
+	char	*strmapi = NULL;
 	int		arg;
 
 	alarm(5);
@@ -183,5 +183,7 @@ int	main(int argc, const char *argv[])
 		if (strmapi[12] != '\0')
 			ft_print_result("\nString is not null terminated");
 	}
+	free(strmapi);
+	free(str);
 	return (0);
 }

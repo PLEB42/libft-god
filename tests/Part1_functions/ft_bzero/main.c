@@ -58,5 +58,6 @@ else if (atoi(argv[1]) == 8)
     ft_bzero(mem, 0);
     write(1, mem, 5);
 }
+    free(mem);
 	return (0);
 }

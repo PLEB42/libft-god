@@ -31,27 +31,60 @@ void    print_zero_check(unsigned char *p, size_t n)
     }
     write(1, "OK", 2);
 }
-
 int     main(int argc, const char *argv[])
 {
+    void *res = NULL; // Variável para segurar o ponteiro alocado
+
     alarm(5);
     if (argc == 1)
         return (0);
-    else if (atoi(argv[1]) == 1)
-        print_zero_check(ft_calloc(30, 1), 30);
-    else if (atoi(argv[1]) == 2)
-        print_zero_check(ft_calloc(1, 1), 1);
-    else if (atoi(argv[1]) == 3)
-        print_zero_check(ft_calloc(4, 8), 32);
-    else if (atoi(argv[1]) == 4)
-        print_zero_check(ft_calloc(0, 1), 0);
-    else if (atoi(argv[1]) == 5)
-        print_zero_check(ft_calloc(1, 0), 0);
-    else if (atoi(argv[1]) == 6)
-        print_zero_check(ft_calloc(0, 0), 0);
-    else if (atoi(argv[1]) == 7)
-        print_zero_check(ft_calloc((size_t)-1, 2), 0);
-    else if (atoi(argv[1]) == 8)
-        print_zero_check(ft_calloc((size_t)-1 / 2 + 1, 2), 0);
+        
+    int test_num = atoi(argv[1]);
+
+    if (test_num == 1)
+    {
+        res = ft_calloc(30, 1);
+        print_zero_check(res, 30);
+    }
+    else if (test_num == 2)
+    {
+        res = ft_calloc(1, 1);
+        print_zero_check(res, 1);
+    }
+    else if (test_num == 3)
+    {
+        res = ft_calloc(4, 8);
+        print_zero_check(res, 32);
+    }
+    else if (test_num == 4)
+    {
+        res = ft_calloc(0, 1);
+        print_zero_check(res, 0);
+    }
+    else if (test_num == 5)
+    {
+        res = ft_calloc(1, 0);
+        print_zero_check(res, 0);
+    }
+    else if (test_num == 6)
+    {
+        res = ft_calloc(0, 0);
+        print_zero_check(res, 0);
+    }
+    else if (test_num == 7)
+    {
+        res = ft_calloc((size_t)-1, 2);
+        print_zero_check(res, 0);
+    }
+    else if (test_num == 8)
+    {
+        res = ft_calloc((size_t)-1 / 2 + 1, 2);
+        print_zero_check(res, 0);
+    }
+
+    // Libera a memória se o ft_calloc tiver retornado algo válido
+    if (res != NULL)
+        free(res);
+
     return (0);
 }
