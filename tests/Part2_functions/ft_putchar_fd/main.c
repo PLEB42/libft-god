@@ -2,15 +2,16 @@
 #include <unistd.h>
 #include "../../../libft.h"
 
-int		main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
-	int		i;
-	int		arg;
+	int	i;
+	int	arg;
 
 	alarm(5);
 	if (argc == 1)
 		return (0);
-	else if ((arg = atoi(argv[1])) == 1)
+	arg = atoi(argv[1]);
+	if (arg == 1)
 	{
 		i = 0;
 		while (i <= 47)
@@ -73,25 +74,27 @@ int		main(int argc, const char *argv[])
 			i++;
 		}
 	}
-	    else if (arg == 8)
-    {
-        ft_putchar_fd('\0', 1);
-    }
-    else if (arg == 9)
-    {
-        ft_putchar_fd('\n', 1);
-    }
-    else if (arg == 10)
-    {
-        ft_putchar_fd((char)255, 1);
-    }
-    else if (arg == 11)
-    {
-        ft_putchar_fd('A', -1);
-    }
-    else if (arg == 12)
-    {
-        ft_putchar_fd('B', 42);
-    }
-    return (0);
+	else if (arg == 8)
+	{
+		ft_putchar_fd('\0', 1);
+	}
+	else if (arg == 9)
+	{
+		ft_putchar_fd('A', 2);   // Caractere visível antes
+		ft_putchar_fd('\n', 2);  // O seu \n sendo testado
+		ft_putchar_fd('B', 2);
+	}
+	else if (arg == 10)
+	{
+		ft_putchar_fd((char)255, 1);
+	}
+	else if (arg == 11)
+	{
+		ft_putchar_fd('A', -1);
+	}
+	else if (arg == 12)
+	{
+		ft_putchar_fd('B', 42);
+	}
+	return (0);
 }

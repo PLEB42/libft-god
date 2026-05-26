@@ -92,7 +92,6 @@ test_function()
 				
 				# Compilation
 				local target_file=$function
-				[ ! -e "${PATH_LIBFT}"/${SRC_DIR}/$function ] && target_file=$(echo ${function} | sed 's/_bonus//g')
 				
 				compilation $target_file
 				check_compilation

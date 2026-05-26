@@ -39,8 +39,8 @@ func_compil_lib()
 		local pattern=$(echo "$rule" | sed 's/\$/\\\$/g')
 		if grep -E "^${pattern}[[:space:]]*:" "${PATH_LIBFT}"/${MAKEFILE_VAR} > /dev/null 2>&1
 		then
-			printf "\n$> make $rule\n" >> "${PATH_DEEPTHOUGHT}"/deepthought
-			make --no-print-directory -C "${PATH_LIBFT}" "$rule" >> "${PATH_DEEPTHOUGHT}"/deepthought 2>&1
+			printf "\n$> make all\n" >> "${PATH_DEEPTHOUGHT}"/deepthought
+			make --no-print-directory -C "${PATH_LIBFT}" all >> "${PATH_DEEPTHOUGHT}"/deepthought 2>&1
 			if [ $? -eq 0 ]; then
 				printf " ${COLOR_OK}✅ OK${DEFAULT}       │\n"
 			else

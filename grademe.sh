@@ -196,11 +196,10 @@ if [ ${OPT_NO_LIBRARY} -eq 0 ]
 then
 	if [ ${IS_SINGLE_FUNCTION} -eq 1 ]
 	then
-		printf "\n${COLOR_PART}─── Compiling libft.a (Single Function Mode) ───${DEFAULT}\n"
-		printf "\n$> make all bonus\n" >> "${PATH_DEEPTHOUGHT}"/deepthought
-		make --no-print-directory -C "${PATH_LIBFT}" all bonus >> "${PATH_DEEPTHOUGHT}"/deepthought 2>&1
-	else
-		func_compil_lib
+	        printf "\n${COLOR_PART}─── Compiling libft.a (Single Function Mode) ───${DEFAULT}\n"
+	        printf "\n$> make all\n" >> "${PATH_DEEPTHOUGHT}"/deepthought
+	        make --no-print-directory -C "${PATH_LIBFT}" all >> "${PATH_DEEPTHOUGHT}"/deepthought 2>&1
+	else		func_compil_lib
 	fi
 fi
 

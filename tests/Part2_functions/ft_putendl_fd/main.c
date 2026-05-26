@@ -18,8 +18,12 @@ int	main(int argc, const char *argv[])
 		ft_putendl_fd("", 2);
 	else if (arg == 4)
 		ft_putendl_fd("lorem ipsum do\0lor sit amet", 1);
+	else if (arg == 5)
+		ft_putendl_fd("a", 2);
 	else if (arg == 6)
 		ft_putendl_fd("\n", 1);
+	else if (arg == 7)
+		ft_putendl_fd("     ", 2);
 	else if (arg == 8)
 		ft_putendl_fd("abc", -1);
 	else if (arg == 9)

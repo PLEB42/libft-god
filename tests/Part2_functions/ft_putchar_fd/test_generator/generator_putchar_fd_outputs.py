@@ -27,7 +27,7 @@ def run_case(arg):
     elif arg == 8:
         return b"\x00"
     elif arg == 9:
-        return b"\n"
+        return b"A\nB"
     elif arg == 10:
         return bytes([255])
     elif arg == 11:
