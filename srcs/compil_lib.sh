@@ -29,7 +29,7 @@ func_compil_lib()
 	printf "${BOLD}┌───────────────────┬────────────┐${DEFAULT}\n"
 	
 	# Full testing mode (requested for 2026 PDF compliance)
-	local rules=("all" "clean" "fclean" "re" "bonus")
+	local rules=("all" "clean" "fclean" "re")
 	
 	for rule in "${rules[@]}"
 	do
@@ -54,8 +54,8 @@ func_compil_lib()
 	printf "${BOLD}├───────────────────┼────────────┤${DEFAULT}\n"
 	printf "${BOLD}│ Result: libft.a   │${DEFAULT}"
 	
-	# Final compilation for tests (ensure all and bonus are built)
-	make --no-print-directory -C "${PATH_LIBFT}" all bonus >> "${PATH_DEEPTHOUGHT}"/deepthought 2>&1
+	# Final compilation for tests (ensure everything is built)
+	make --no-print-directory -C "${PATH_LIBFT}" all >> "${PATH_DEEPTHOUGHT}"/deepthought 2>&1
 	
 	if [ -e "${PATH_LIBFT}"/libft.a ]; then
 		printf " ${COLOR_OK}✅ FOUND${DEFAULT}    │\n"

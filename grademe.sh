@@ -159,10 +159,8 @@ init_deepthought()
 	uname -msr >> "${PATH_DEEPTHOUGHT}"/deepthought
 	printf "$> date\n" >> "${PATH_DEEPTHOUGHT}"/deepthought
 	date >> "${PATH_DEEPTHOUGHT}"/deepthought
-	printf "$> gcc --version\n" >> "${PATH_DEEPTHOUGHT}"/deepthought
-	gcc --version >> "${PATH_DEEPTHOUGHT}"/deepthought
-	printf "$> clang --version\n" >> "${PATH_DEEPTHOUGHT}"/deepthought
-	clang --version >> "${PATH_DEEPTHOUGHT}"/deepthought
+	printf "$> cc --version\n" >> "${PATH_DEEPTHOUGHT}"/deepthought
+	cc --version >> "${PATH_DEEPTHOUGHT}"/deepthought
 }
 
 clear

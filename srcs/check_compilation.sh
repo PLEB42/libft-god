@@ -25,10 +25,10 @@ compilation()
 	local func_src="${PATH_LIBFT}/${SRC_DIR}/$1"
 	local test_main="${PATH_TEST}/tests/$(echo ${part}tions)/$(echo $1 | cut -d . -f 1 | sed 's/_bonus//g')/main.c"
 	local lib_a="${PATH_LIBFT}/libft.a"
-	
-	printf "$> clang -Wextra -Wall -Werror -g3 $1 main.c libft.a -o user_exe\n" >> "${PATH_DEEPTHOUGHT}"/deepthought
-	
-	clang -Wextra -Wall -Werror -g3 "$func_src" "$test_main" "$lib_a" \
+
+	printf "$> cc -Wextra -Wall -Werror -g3 $1 main.c libft.a -o user_exe\n" >> "${PATH_DEEPTHOUGHT}"/deepthought
+
+	cc -Wextra -Wall -Werror -g3 "$func_src" "$test_main" "$lib_a" \
 		  -I "${PATH_LIBFT}"/${HEADER_DIR}/ \
 		  -I "${PATH_TEST}" \
 		  -I . \
