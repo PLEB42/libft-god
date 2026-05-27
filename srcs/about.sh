@@ -12,7 +12,7 @@ display_about()
 	printf "\n"
 	printf "${BOLD}Pleb_42 Organization${DEFAULT}\n"
 	printf "Developing tools for the community, by the community.\n"
-	printf "${CYAN}GitHub: https://github.com/Pleb-42${DEFAULT}\n"
+	printf "${CYAN}GitHub: https://github.com/PLEB42${DEFAULT}\n"
 	printf "\n"
 	printf "${YELLOW}"
 	cat << "EOF"

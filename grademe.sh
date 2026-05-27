@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# **************************************************************************** #
+#                                                                              #
+#    This project is based on and inspired by the libft-war-machine version    #
+#    maintained by @0x050f (https://github.com/0x050f/libft-war-machine),      #
+#    which in turn was based on the versions by @lmartin and the original      #
+#    Libftest by @jtoty.                                                       #
+#                                                                              #
+#    Modified and enhanced for the "Libft God" version (2026 Edition).          #
+#                                                                              #
+# **************************************************************************** #
+
 #PATH_TEST=$(dirname $(readlink -f $0))
 PATH_TEST="$(cd "$(dirname "$0")" && pwd -P)"
 
@@ -7,6 +18,7 @@ PATH_TEST="$(cd "$(dirname "$0")" && pwd -P)"
 exec 2> /dev/null
 
 source "${PATH_TEST}"/srcs/variables.sh
+source "${PATH_TEST}"/srcs/about.sh
 
 IS_SINGLE_FUNCTION=0
 
@@ -89,7 +101,6 @@ source "${PATH_TEST}"/srcs/compil_lib.sh
 source "${PATH_TEST}"/srcs/diff_test.sh
 source "${PATH_TEST}"/srcs/test_function.sh
 source "${PATH_TEST}"/srcs/check_update.sh
-source "${PATH_TEST}"/srcs/about.sh
 
 cd "${PATH_TEST}"
 
