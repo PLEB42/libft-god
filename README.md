@@ -1,80 +1,96 @@
-# Libft-God (Versão 2026) 🚀
+# Libft-God (2026 Edition) 🚀
 
-O **Libft-God** é um testador avançado e moderno para o projeto `libft` da 42. Ele foi desenvolvido para garantir que sua biblioteca esteja em conformidade com o padrão PDF de 2026, oferecendo testes rigorosos de funcionalidade, gestão de memória e estilo.
+**Libft-God** is an advanced, high-performance tester for the 42 school `libft` project. It is designed to ensure your library fully complies with the 2026 PDF standards, offering rigorous functional testing, memory leak detection, and style checks.
 
-## ✨ Funcionalidades
+## ✨ Features
 
-- ✅ **Testes Funcionais:** Cobre as Partes 1, 2, Bônus (Part 3) e funções adicionais.
-- 🎨 **Interface Moderna:** Exibição em tabelas coloridas com caracteres de desenho de caixa e progresso em tempo real.
-- 🔍 **Detecção de Leaks:** Integração automática com o **Valgrind** para verificar vazamentos de memória em cada caso de teste.
-- 📏 **Norminette:** Verificação de normas diretamente pelo script.
-- 🚫 **Funções Proibidas:** Checagem automática para garantir que você não usou funções não autorizadas.
-- 🛠️ **Gestão de Makefile:** Testa todas as regras obrigatórias (`all`, `clean`, `fclean`, `re`, `bonus`).
-- 🎯 **Testes Granulares:** Permite testar apenas uma função específica ou partes selecionadas do projeto.
+- ✅ **Comprehensive Functional Testing:** Covers Part 1, Part 2, Bonus (Part 3), and additional extra functions.
+- ⚡ **Turbo Mode:** Features a `-fast` flag for optimized, one-shot memory leak detection, drastically reducing test execution time.
+- 🍎🐧 **Cross-Platform Memory Checks:** Automatically uses **Valgrind** on Linux and native **Leaks** on macOS to verify memory safety.
+- 🎨 **Modern Interface:** Displays results in a clean, color-coded table format with real-time progress tracking.
+- 📏 **Norminette Integration:** Performs syntax and norm checks directly via the script.
+- 🚫 **Forbidden Functions:** Automatically scans your binaries to ensure no unauthorized functions are used.
+- 🛠️ **Makefile Validation:** Rigorously tests all mandatory rules (`all`, `clean`, `fclean`, `re`).
+- 🎯 **Granular Testing:** Allows you to test specific functions or isolated parts of the project.
 
-## 📋 Pré-requisitos
+## 📋 Prerequisites
 
-Para usar este tester, você precisará de:
-- **Norminette** (instalado no ambiente 42).
-- **Valgrind** (opcional, mas recomendado para testes de leak).
-- **GCC** ou **Clang**.
+To use this tester, you will need:
+- **Norminette** (installed in your environment).
+- **Valgrind** (required on Linux for leak detection).
+- **CC** compiler.
 
-## 🚀 Como Usar
+## 🚀 How to Use
 
-### 1. Configuração
+### 1. Configuration
 
-Antes de rodar, você precisa informar ao tester onde está sua `libft`.
+Before running the tester, you must configure the path to your `libft` project.
 
-1. Copie o arquivo de template (se não existir `my_config.sh` na raiz):
+1. Create your configuration file from the template:
    ```bash
    cp srcs/config_template.sh my_config.sh
    ```
-2. Edite o arquivo `my_config.sh` e preencha a variável `PATH_LIBFT` com o caminho do seu projeto:
+2. Edit `my_config.sh` and set the `PATH_LIBFT` variable to the absolute or relative path of your project:
    ```bash
-   PATH_LIBFT="/caminho/para/sua/libft"
+   PATH_LIBFT="/path/to/your/libft"
    ```
 
-### 2. Execução
+### 2. Execution
 
-Para rodar todos os testes padrão:
+To run the standard test suite:
 ```bash
 bash grademe.sh
 ```
 
-### 3. Exemplos de Comandos Úteis
+### 3. Useful Commands & Examples
 
-- **Testar apenas uma função:**
+- **Test a single function:**
   ```bash
   bash grademe.sh ft_atoi
   ```
 
-- **Testar apenas uma parte específica:**
+- **Run in Fast Mode (Optimized Leak Check):**
   ```bash
-  bash grademe.sh -op1  # Apenas Parte 1
-  bash grademe.sh -op2  # Apenas Parte 2
-  bash grademe.sh -op3  # Apenas Bônus
+  bash grademe.sh -fast
   ```
 
-- **Ignorar Norminette ou Leaks:**
+- **Test a specific part:**
   ```bash
-  bash grademe.sh -n    # Pula a Norminette
-  bash grademe.sh -f    # Pula checagem de funções proibidas
+  bash grademe.sh -op1  # Only Part 1
+  bash grademe.sh -op2  # Only Part 2
+  bash grademe.sh -op3  # Only Bonus (Part 3)
   ```
 
-## 🛠️ Opções Disponíveis
+- **Skip specific checks:**
+  ```bash
+  bash grademe.sh -n    # Skip Norminette checks
+  bash grademe.sh -f    # Skip forbidden functions check
+  ```
 
-| Opção | Descrição |
+## 🛠️ Available Options
+
+| Flag | Description |
 | :--- | :--- |
-| `-h`, `--help` | Exibe o manual completo. |
-| `-d` | Permite testes mesmo que os arquivos estejam em subdiretórios. |
-| `-c` | Desativa as cores no terminal. |
-| `-m` | Testa rigorosamente todas as regras do seu Makefile. |
-| `-u` | Desativa a busca por atualizações ao iniciar. |
-| `-p1, -p2, -p3` | Desativa os testes da Parte 1, 2 ou Bônus, respectivamente. |
+| `-h`, `--help` | Displays the full manual. |
+| `-a`, `--about` | Displays the About page and Pleb_42 organization credits. |
+| `-fast` | Enables fast mode (one-shot memory leak checking per function). |
+| `-d` | Allows testing even if files are in subdirectories. |
+| `-c` | Disables terminal colors. |
+| `-m` | Rigorously tests all Makefile rules. |
+| `-u` | Disables startup update checks. |
+| `-n` | Disables Norminette checks. |
+| `-f` | Disables forbidden function checks. |
+| `-p1, -p2, -p3` | Disables testing for Part 1, 2, or 3 respectively. |
 
-## 📁 Funções Suportadas
+## 📁 Supported Functions
 
-O tester suporta todas as funções clássicas da `libc`, funções de manipulação de strings da Parte 2, funções de lista encadeada (Bônus) e diversas funções extras como `ft_isspace`, `ft_itoa_base`, etc. (Veja a lista completa em `supported_functions.md`).
+The tester supports all standard `libc` functions, Part 2 string manipulation functions, linked list functions (Bonus), and various extra functions (e.g., `ft_isspace`, `ft_itoa_base`). Please refer to `supported_functions.md` for the complete list.
+
+## 📜 Credits and History
+
+This project was built upon and inspired by the **libft-war-machine** version maintained by **@0x050f**, which in turn was based on the versions by **@lmartin** and the original **Libftest** created by **@jtoty**. 
+
+The **Libft God** iteration introduces several major improvements, including significant performance optimizations (Fast Mode), updated compatibility with the 42 standards (2026 PDF), and robust, cross-platform memory leak detection for both macOS and Linux.
 
 ---
-*Disclaimer: Este tester é uma ferramenta de auxílio. Passar em todos os testes não garante nota máxima, mas aumenta drasticamente suas chances!*
+*Disclaimer: This tester is a helpful tool, but passing all tests here does not guarantee a perfect grade. Always double-check your code!*

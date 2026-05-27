@@ -17,6 +17,10 @@ do
 							exit ;;
 		"-h")				man "${PATH_TEST}"/srcs/help.1
 							exit ;;
+		"--about")			display_about
+							exit ;;
+		"-a")				display_about
+							exit ;;
 		"-d")				DIRECTORY=1 ;;
 		"-s")				OPT_NO_SEARCH=1 ;;
 		"-m")				OPT_FULL_MAKEFILE=1 ;;
@@ -85,6 +89,7 @@ source "${PATH_TEST}"/srcs/compil_lib.sh
 source "${PATH_TEST}"/srcs/diff_test.sh
 source "${PATH_TEST}"/srcs/test_function.sh
 source "${PATH_TEST}"/srcs/check_update.sh
+source "${PATH_TEST}"/srcs/about.sh
 
 cd "${PATH_TEST}"
 
