@@ -21,12 +21,16 @@ def run_case(arg):
         return b'NULL'
     elif arg == 8:
         return b'NULL'
+    elif arg == 9:
+        return b'OK'
+    elif arg == 10:
+        return b'NULL'
     else:
         raise ValueError(f'unknown test {arg}')
 
 
 def main():
-    for i in range(1, 9):
+    for i in range(1, 11):
         (OUTDIR / f'test{i:02d}.output').write_bytes(run_case(i))
 
 

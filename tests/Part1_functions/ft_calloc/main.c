@@ -81,6 +81,22 @@ int     main(int argc, const char *argv[])
         res = ft_calloc((size_t)-1 / 2 + 1, 2);
         print_zero_check(res, 0);
     }
+    else if (test_num == 9)
+    {
+        res = ft_calloc(0, 0);
+        if (res)
+            write(1, "OK", 2);
+        else
+            write(1, "NULL", 4);
+    }
+    else if (test_num == 10)
+    {
+        res = ft_calloc((size_t)-1, (size_t)-1);
+        if (!res)
+            write(1, "NULL", 4);
+        else
+            write(1, "KO", 2);
+    }
 
     // Libera a memória se o ft_calloc tiver retornado algo válido
     if (res != NULL)

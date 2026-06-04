@@ -265,6 +265,27 @@ int main(int argc, const char *argv[])
             print_ko("f called once per node");
         ft_lstclear(&mapped, &tracked_del);
     }
+    else if (test_num == 12)
+    {
+        reset_counters();
+        elem->next = NULL;
+        mapped = ft_lstmap(elem, &map_dup_replace_o, &tracked_del);
+        if (mapped && mapped->next == NULL && str_eq(mapped->content, "larem"))
+            print_ok("single node mapping");
+        else
+            print_ko("single node mapping");
+        ft_lstclear(&mapped, &tracked_del);
+    }
+    else if (test_num == 13)
+    {
+        reset_counters();
+        g_fail_on_call = 1;
+        mapped = ft_lstmap(elem, &map_dup_replace_o, &tracked_del);
+        if (mapped == NULL && g_map_calls == 1 && g_del_calls == 0)
+            print_ok("fail on first node handled");
+        else
+            print_ko("fail on first node handled");
+    }
 
     /* --- CENTRAL DE LIMPEZA GERAL --- */
     if (str)  free(str);

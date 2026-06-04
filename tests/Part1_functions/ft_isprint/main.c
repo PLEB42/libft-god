@@ -146,12 +146,15 @@ int     main(int argc, const char *argv[])
     }
     else if (arg == 16)
     {
-        unsigned char   c;
+    	unsigned char   c;
 
 
-        c = (unsigned char)'A';
-        ft_print_result(ft_isprint(c));
+    c = (unsigned char)'A';
+    ft_print_result(ft_isprint(c));
+    }
+    else if (arg == 17)
+    {
+    ft_print_result(ft_isprint(-1));
     }
     return (0);
-    
-}
+    }

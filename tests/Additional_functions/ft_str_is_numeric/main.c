@@ -100,5 +100,17 @@ int		main(int argc, const char *argv[])
 			i++;
 		}
 	}
+	else if (arg == 8)
+	{
+		ft_print_result(ft_str_is_numeric(""));
+	}
+	else if (arg == 9)
+	{
+		ft_print_result(ft_str_is_numeric("1234567890"));
+	}
+	else if (arg == 10)
+	{
+		ft_print_result(ft_str_is_numeric("12345a6789"));
+	}
 	return (0);
 }

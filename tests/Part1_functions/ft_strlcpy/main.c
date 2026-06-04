@@ -54,6 +54,24 @@ int		main(int argc, const char *argv[])
 		write(1, "\n", 1);
 		write(1, dest, 15);
 	}
+	else if (atoi(argv[1]) == 6)
+	{
+		ft_print_result(ft_strlcpy(dest, "hello", 1));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (atoi(argv[1]) == 7)
+	{
+		ft_print_result(ft_strlcpy(dest, "abc", 2));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
+	else if (atoi(argv[1]) == 8)
+	{
+		ft_print_result(ft_strlcpy(dest, "abcd", 4));
+		write(1, "\n", 1);
+		write(1, dest, 15);
+	}
 	free(dest);
 	return (0);
 }

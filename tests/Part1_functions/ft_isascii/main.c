@@ -145,5 +145,9 @@ int		main(int argc, const char *argv[])
 		c = (unsigned char)255;
 		ft_print_result(ft_isascii(c));
 	}
+	else if (arg == 17)
+	{
+		ft_print_result(ft_isascii(-1));
+	}
 	return (0);
 }

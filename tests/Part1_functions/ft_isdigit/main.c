@@ -144,5 +144,9 @@ int		main(int argc, const char *argv[])
 		c =(unsigned char)'A';
 		ft_print_result(ft_isdigit(c));
 	}
+	else if (arg == 17)
+	{
+		ft_print_result(ft_isdigit(-1));
+	}
 	return (0);
 }

@@ -60,5 +60,25 @@ int		main(int argc, const char *argv[])
 		else
 			ft_print_result("NULL");
 	}
+	else if (arg == 4)
+	{
+		char str2[] = ",,,abc,,,def,,";
+		if ((token = ft_strtok(str2, ",")))
+		{
+			ft_print_result(token);
+			while ((token = ft_strtok(NULL, ",")))
+				ft_print_result(token);
+		}
+		else
+			ft_print_result("NULL");
+	}
+	else if (arg == 5)
+	{
+		char str2[] = ",,,,,";
+		if ((token = ft_strtok(str2, ",")))
+			ft_print_result(token);
+		else
+			ft_print_result("NULL");
+	}
 	return (0);
 }

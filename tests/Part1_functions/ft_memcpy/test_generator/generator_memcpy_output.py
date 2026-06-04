@@ -36,9 +36,17 @@ write_case(10, b"1234567890", 10)
 write_case(11, b"A", 1)
 write_case(12, b"\n\t\r\x0b\x0c", 5)
 
+def main():
+    # Caso 13: NULL, NULL, 0
+    (OUTDIR / "test13.output").write_bytes(b"NULL SAFE")
+
+if __name__ == "__main__":
+    main()
+
 # Manifesto hexadecimal
 hex_lines = []
-for i in range(1, 13):
+for i in range(1, 14):
+
     p = OUTDIR / f"test{i:02d}.output"
     hex_lines.append(f"test{i:02d}.output: {p.read_bytes().hex()}")
 (OUTDIR / "manifest_hex.txt").write_text("\n".join(hex_lines) + "\n", encoding="utf-8")

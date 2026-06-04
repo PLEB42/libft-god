@@ -60,5 +60,15 @@ int		main(int argc, const char *argv[])
         ft_print_result(ft_memcmp("abcdx", "abcdy", 4));
     else if (arg == 20)
         ft_print_result(ft_memcmp("abcdx", "abcdy", 5));
+    else if (arg == 21)
+        ft_print_result(ft_memcmp("\xff", "\x00", 1));
+    else if (arg == 22)
+        ft_print_result(ft_memcmp("\x00", "\xff", 1));
+    else if (arg == 23)
+        ft_print_result(ft_memcmp("\xfe\xff", "\xfe\x00", 2));
+    else if (arg == 24)
+        ft_print_result(ft_memcmp("abc\200", "abc\0", 4));
+    else if (arg == 25)
+        ft_print_result(ft_memcmp("abc\200", "abc\201", 4));
     return (0);
 }

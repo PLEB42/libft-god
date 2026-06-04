@@ -39,8 +39,13 @@ tests = {
     18: (b"\x00\x02",    b"\x00\x01",    2),
     19: (b"abcdx",       b"abcdy",       4),
     20: (b"abcdx",       b"abcdy",       5),
+    21: (b"\xff",        b"\x00",        1),
+    22: (b"\x00",        b"\xff",        1),
+    23: (b"\xfe\xff",    b"\xfe\x00",    2),
+    24: (b"abc\x80",     b"abc\x00",     4),
+    25: (b"abc\x80",     b"abc\x81",     4),
 }
 
-for i in range(1, 21):
+for i in range(1, 26):
     s1, s2, n = tests[i]
     (OUTDIR / f"test{i:02d}.output").write_bytes(sign(c_memcmp(s1, s2, n)))

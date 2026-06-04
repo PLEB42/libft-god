@@ -123,6 +123,26 @@ int main(int argc, const char *argv[])
         else
             ft_print_result("FAIL");
     }
+    else if (arg == 9)
+    {
+        char *s1 = "";
+        char *s2 = "";
+        strjoin = ft_strjoin(s1, s2);
+        if (strjoin && strjoin[0] == '\0')
+            ft_print_result("OK EMPTY");
+        else
+            ft_print_result("FAIL EMPTY");
+    }
+    else if (arg == 10)
+    {
+        char *s1 = "abc";
+        char *s2 = "";
+        strjoin = ft_strjoin(s1, s2);
+        if (strjoin && strcmp(strjoin, "abc") == 0)
+            ft_print_result("OK ABC");
+        else
+            ft_print_result("FAIL ABC");
+    }
     if (strjoin != NULL)
         free(strjoin);
     return (0);

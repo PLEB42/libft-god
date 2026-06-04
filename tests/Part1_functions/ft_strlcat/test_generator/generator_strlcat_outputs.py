@@ -97,6 +97,23 @@ def run_case(arg):
     elif arg == 20:
         dest[0] = 0
         ret = py_strlcat(dest, '', 15)
+    elif arg == 21:
+        dest[:4] = b'abc\x00'
+        ret = py_strlcat(dest, 'def', 3)
+    elif arg == 22:
+        dest[:4] = b'abc\x00'
+        ret = py_strlcat(dest, 'def', 2)
+    elif arg == 23:
+        dest[:4] = b'abc\x00'
+        ret = py_strlcat(dest, 'def', 0)
+    elif arg == 24:
+        dest = bytearray(b'a' * 15)
+        dest[5] = 0
+        ret = py_strlcat(dest, 'def', 15)
+    elif arg == 25:
+        dest = bytearray(b'a' * 15)
+        # Não nulo-terminado nos primeiros 10 bytes
+        ret = py_strlcat(dest, 'lorem', 10)
     else:
         raise ValueError(f'unknown test {arg}')
 
@@ -104,7 +121,7 @@ def run_case(arg):
 
 
 def main():
-    for i in range(1, 21):
+    for i in range(1, 26):
         ret, dest = run_case(i)
         path = OUTDIR / f'test{i:02d}.output'
         with open(path, 'wb') as f:

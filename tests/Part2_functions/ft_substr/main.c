@@ -132,6 +132,20 @@ int		main(int argc, const char *argv[])
         if (str2 == strsub)
             ft_print_result("\nA new string was not returned");
     }
+    else if (arg == 12)
+    {
+        if (!(strsub = ft_substr("hello", 5, 1)))
+            ft_print_result("NULL");
+        else
+            ft_print_result(strsub);
+    }
+    else if (arg == 13)
+    {
+        if (!(strsub = ft_substr("hello", 10, 1)))
+            ft_print_result("NULL");
+        else
+            ft_print_result(strsub);
+    }
 	if (strsub != NULL)
         free(strsub);
 	return (0);

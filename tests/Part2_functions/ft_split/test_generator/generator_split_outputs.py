@@ -62,12 +62,16 @@ def run_case(arg):
         return render_case(py_split("a", 'z'), False)
     elif arg == 14:
         return render_case(py_split("abc", '\0'), False)
+    elif arg == 15:
+        return render_case(py_split("\x01\x01abc\x01\x01def\x01\x01", '\x01'), False)
+    elif arg == 16:
+        return render_case(py_split("   lorem   ipsum   ", ' '), False)
     else:
         raise ValueError(f"unknown test {arg}")
 
 
 def main():
-    for i in range(1, 15):
+    for i in range(1, 17):
         out = run_case(i)
         path = OUTDIR / f"test{i:02d}.output"
         with open(path, "wb") as f:

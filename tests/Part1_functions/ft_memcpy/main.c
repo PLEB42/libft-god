@@ -84,6 +84,11 @@ else if (arg == 12)
         write(1, "dest's adress was not returned\n", 31);
     write(1, mem, 30);
 }
+else if (arg == 13)
+{
+    if (ft_memcpy(NULL, NULL, 0) == NULL)
+        write(1, "NULL SAFE", 9);
+}
 free(mem);
 	return (0);
 }

@@ -230,5 +230,20 @@ int		main(int argc, const char *argv[])
 		ft_print_result(ft_itoa_base(-2147483648LL, arg + 1));
 		ft_print_result(ft_itoa_base(2147483647, arg + 1));
 	}
+	else if (arg == 16)
+	{
+		char *res = ft_itoa_base(42, 1);
+		if (!res) write(1, "NULL\n", 5); else ft_print_result(res);
+	}
+	else if (arg == 17)
+	{
+		char *res = ft_itoa_base(42, 0);
+		if (!res) write(1, "NULL\n", 5); else ft_print_result(res);
+	}
+	else if (arg == 18)
+	{
+		char *res = ft_itoa_base(42, -10);
+		if (!res) write(1, "NULL\n", 5); else ft_print_result(res);
+	}
 	return (0);
 }

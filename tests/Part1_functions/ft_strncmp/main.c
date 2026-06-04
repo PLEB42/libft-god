@@ -58,5 +58,11 @@ int		main(int argc, const char *argv[])
         ft_print_result(ft_strncmp("ab", "abc", 3));
     else if (arg == 19)
         ft_print_result(ft_strncmp("abc", "ab", 3));
+    else if (arg == 20)
+        ft_print_result(ft_strncmp("\xff", "\x00", 1));
+    else if (arg == 21)
+        ft_print_result(ft_strncmp("\x00", "\xff", 1));
+    else if (arg == 22)
+        ft_print_result(ft_strncmp("abc\200", "abc\0", 6));
     return (0);
 }

@@ -44,8 +44,11 @@ tests = {
     17: (b"\x81",       b"\x80",     1),
     18: (b"ab",         b"abc",      3),
     19: (b"abc",        b"ab",       3),
+    20: (b"\xff",       b"\x00",     1),
+    21: (b"\x00",       b"\xff",     1),
+    22: (b"abc\x80",    b"abc\x00",  6),
 }
 
-for i in range(1, 20):
+for i in range(1, 23):
     s1, s2, n = tests[i]
     (OUTDIR / f"test{i:02d}.output").write_bytes(out(c_strncmp(s1, s2, n)))

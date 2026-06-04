@@ -14,6 +14,8 @@ OUTPUTS = {
     9: "OK: maps from middle node onward\n",
     10: "OK: single tail node mapping\n",
     11: "OK: f called once per node\n",
+    12: "OK: single node mapping\n",
+    13: "OK: fail on first node handled\n",
 }
 
 

@@ -100,5 +100,17 @@ int		main(int argc, const char *argv[])
 			i++;
 		}
 	}
+	else if (arg == 8)
+	{
+		ft_print_result(ft_str_is_alpha(""));
+	}
+	else if (arg == 9)
+	{
+		ft_print_result(ft_str_is_alpha("AbCdEfG"));
+	}
+	else if (arg == 10)
+	{
+		ft_print_result(ft_str_is_alpha("AbCdEfG1"));
+	}
 	return (0);
 }

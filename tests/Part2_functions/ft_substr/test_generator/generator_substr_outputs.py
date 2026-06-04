@@ -35,6 +35,10 @@ def run_case(arg):
         src, start, length = str_main, 0, 100
     elif arg == 11:
         src, start, length = 'abcdef', 2, 3
+    elif arg == 12:
+        src, start, length = 'hello', 5, 1
+    elif arg == 13:
+        src, start, length = 'hello', 10, 1
     else:
         raise ValueError(f'unknown test {arg}')
 
@@ -42,7 +46,7 @@ def run_case(arg):
 
 
 def main():
-    for i in range(1, 12):
+    for i in range(1, 14):
         (OUTDIR / f'test{i:02d}.output').write_bytes(run_case(i))
 
 

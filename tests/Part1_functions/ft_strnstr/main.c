@@ -92,5 +92,26 @@ int		main(int argc, const char *argv[])
 		else
 			ft_print_result(str);
 	}
+	else if (arg == 11)
+	{
+		if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "ipsum", 10)))
+			ft_print_result("NULL");
+		else
+			ft_print_result(str);
+	}
+	else if (arg == 12)
+	{
+		if (!(str = ft_strnstr("lorem ipsum dolor sit amet", "ipsum", 11)))
+			ft_print_result("NULL");
+		else
+			ft_print_result(str);
+	}
+	else if (arg == 13)
+	{
+		if (!(str = ft_strnstr("aaaaa", "aa", 5)))
+			ft_print_result("NULL");
+		else
+			ft_print_result(str);
+	}
 	return (0);
 }

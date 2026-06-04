@@ -155,5 +155,9 @@ int		main(int argc, const char *argv[])
 		c = (unsigned char)'A';
 		ft_print_result(ft_isalnum(c));
 	}
+	else if (arg == 17)
+	{
+		ft_print_result(ft_isalnum(-1)); // Testando valor EOF explicitamente
+	}
 	return (0);
 }

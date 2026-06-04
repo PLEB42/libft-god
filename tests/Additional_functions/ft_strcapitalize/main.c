@@ -45,5 +45,15 @@ int		main(int argc, const char *argv[])
 		char str[] = "salut, comment tu vas ? unitmots trente-deux; vingt+et+un";
 		ft_print_result(ft_strcapitalize(str));
 	}
+	else if (arg == 4)
+	{
+		char str[] = "123abcDEF GHIjkl";
+		ft_print_result(ft_strcapitalize(str));
+	}
+	else if (arg == 5)
+	{
+		char str[] = "   hello   world   ";
+		ft_print_result(ft_strcapitalize(str));
+	}
 	return (0);
 }

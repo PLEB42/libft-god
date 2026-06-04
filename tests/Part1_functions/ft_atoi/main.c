@@ -86,5 +86,39 @@ int main(int argc, const char *argv[])
         ft_print_result(ft_atoi("2147483648"));
     else if (arg == 27)
         ft_print_result(ft_atoi("-2147483649"));
+    else if (arg == 28)
+        ft_print_result(ft_atoi(" \t\v\n\r\f-123"));
+    else if (arg == 29)
+        ft_print_result(ft_atoi(" \f\r\n\v\t456"));
+    else if (arg == 30)
+        ft_print_result(ft_atoi(" +123"));
+    else if (arg == 31)
+        ft_print_result(ft_atoi(" -123"));
+    else if (arg == 32)
+        ft_print_result(ft_atoi("\t\t\t\n\n\n123"));
+    else if (arg == 33)
+        ft_print_result(ft_atoi("-0"));
+    else if (arg == 34)
+        ft_print_result(ft_atoi("+0"));
+    else if (arg == 35)
+        ft_print_result(ft_atoi("   + 123"));
+    else if (arg == 36)
+        ft_print_result(ft_atoi("   - 123"));
+    else if (arg == 37)
+        ft_print_result(ft_atoi("+-123"));
+    else if (arg == 38)
+        ft_print_result(ft_atoi("-+123"));
+    else if (arg == 39)
+        ft_print_result(ft_atoi("2147483647"));
+    else if (arg == 40)
+        ft_print_result(ft_atoi("-2147483648"));
+    else if (arg == 41)
+        ft_print_result(ft_atoi("0000000000000000000000000000000000000000042"));
+    else if (arg == 42)
+        ft_print_result(ft_atoi("99999999999999999999999999999999999999"));
+    else if (arg == 43)
+        ft_print_result(ft_atoi("-99999999999999999999999999999999999999"));
+    else if (arg == 44)
+        ft_print_result(ft_atoi("100000000000000000000000000000000000000"));
     return (0);
 }

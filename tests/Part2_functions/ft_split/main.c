@@ -198,6 +198,34 @@ int		main(int argc, const char *argv[])
             }
         }
     }
+    else if (arg == 15)
+    {
+        if (!(tabstr = ft_split("\1\1abc\1\1def\1\1", '\1')))
+            ft_print_result("NULL");
+        else
+        {
+            while (tabstr[i] != NULL)
+            {
+                ft_print_result(tabstr[i]);
+                write(1, "\n", 1);
+                i++;
+            }
+        }
+    }
+    else if (arg == 16)
+    {
+        if (!(tabstr = ft_split("   lorem   ipsum   ", ' ')))
+            ft_print_result("NULL");
+        else
+        {
+            while (tabstr[i] != NULL)
+            {
+                ft_print_result(tabstr[i]);
+                write(1, "\n", 1);
+                i++;
+            }
+        }
+    }
     if (tabstr != NULL)
     {
         i = 0;

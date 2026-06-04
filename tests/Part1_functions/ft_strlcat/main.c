@@ -165,6 +165,42 @@ int		main(int argc, const char *argv[])
         write(1, "\n", 1);
         write(1, dest, 15);
     }
+    else if (arg == 21)
+    {
+        strcpy(dest, "abc");
+        ft_print_result(ft_strlcat(dest, "def", 3));
+        write(1, "\n", 1);
+        write(1, dest, 15);
+    }
+    else if (arg == 22)
+    {
+        strcpy(dest, "abc");
+        ft_print_result(ft_strlcat(dest, "def", 2));
+        write(1, "\n", 1);
+        write(1, dest, 15);
+    }
+    else if (arg == 23)
+    {
+        strcpy(dest, "abc");
+        ft_print_result(ft_strlcat(dest, "def", 0));
+        write(1, "\n", 1);
+        write(1, dest, 15);
+    }
+    else if (arg == 24)
+    {
+        memset(dest, 'a', 15);
+        dest[5] = '\0';
+        ft_print_result(ft_strlcat(dest, "def", 15));
+        write(1, "\n", 1);
+        write(1, dest, 15);
+    }
+    else if (arg == 25)
+    {
+        memset(dest, 'a', 15);
+        ft_print_result(ft_strlcat(dest, "lorem", 10));
+        write(1, "\n", 1);
+        write(1, dest, 15);
+    }
     free(dest);
 	return (0);
 }

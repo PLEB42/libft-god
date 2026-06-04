@@ -26,10 +26,14 @@ def run_case(arg: int) -> bytes:
         s2 = "123"
         joined = s1 + s2
         return b"OK" if len(joined) == 7 else b"FAIL"
+    elif arg == 9:
+        return b"OK EMPTY"
+    elif arg == 10:
+        return b"OK ABC"
     raise ValueError(f"unknown test {arg}")
 
 def main() -> None:
-    for i in range(1, 9):
+    for i in range(1, 11):
         path = OUTDIR / f"test{i:02d}.output"
         path.write_bytes(run_case(i))
 
