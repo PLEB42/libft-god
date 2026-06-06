@@ -1,5 +1,10 @@
 # Libft-God (2026 Edition) 🚀
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Project-libft-blueviolet?style=for-the-badge&logo=42" alt="42 Project">
+  <img src="https://img.shields.io/badge/Tester-God%20Edition-gold?style=for-the-badge" alt="God Edition">
+</p>
+
 **Libft-God** is the ultimate, high-performance testing suite for the 42 school `libft` project. Built upon the legacy of the industry-standard testers, this "God" edition has been massively expanded to provide the most rigorous validation possible for today's standards. It is the definitive tool for students who aim not just to pass, but to achieve perfection.
 
 ---
@@ -54,25 +59,39 @@ The tester needs to know where your source code is.
    ```
 2. Edit `my_config.sh` and set `PATH_LIBFT`:
    ```bash
-   PATH_LIBFT="/path/to/your/libft"
-   SRC_DIR="srcs" # If your .c files are in a subfolder
-   HEADER_DIR="inc" # If your .h files are in a subfolder
+   PATH_LIBFT="/path/to/your/libft" #(pwd)
    ```
+
+> **BEFORE TEST**
+>
+> **In your Makefile, you can use your SRCS only test:
+> 
+> SRCS        := **#** ft_isdigit.c ft_strlen.c ft_isalpha.c ft_isalpha.c...
+>
+> The point is **#**, don't forget the **#**
+> 
+
 
 ### 3. Basic Execution
 Run everything:
 ```bash
 bash grademe.sh
+   or
+./grademe.sh
 ```
 
 Run a specific function:
 ```bash
 bash grademe.sh ft_split
+   or
+./grademe.sh ft_split
 ```
 
 Run with **Turbo Mode** (High speed):
 ```bash
 bash grademe.sh -fast
+   or
+./grademe.sh -fast
 ```
 
 ---
