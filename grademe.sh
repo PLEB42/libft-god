@@ -36,6 +36,8 @@ do
 		"-d")				DIRECTORY=1 ;;
 		"-s")				OPT_NO_SEARCH=1 ;;
 		"-m")				OPT_FULL_MAKEFILE=1 ;;
+		"-M")				OPT_NO_MAKEFILE=1
+							OPT_NO_LIBRARY=1 ;;
 		"-l")				OPT_NO_LIBRARY=1 ;;
 		"-c")				OPT_NO_COLOR=1 ;;
 		"-f")				OPT_NO_FORBIDDEN=1 ;;
@@ -155,7 +157,11 @@ do
 	        nb_func=$(echo ${!tab_part} | wc -w)
 	        while (( p < ${nb_func} ))
 	        do
-	                (( ${part}_activation[$p]=1 ))
+					func_name_ref=$(echo ${part}[$p])
+					if [[ "${!func_name_ref}" != \#* ]]
+					then
+	                	(( ${part}_activation[$p]=1 ))
+					fi
 	                (( p += 1 ))
 	        done
 	fi
@@ -230,7 +236,11 @@ do
 		nb_func=$(echo ${!tab_part} | wc -w)
 		while (( p < ${nb_func} ))
 		do
-			(( ${part}_activation[$p]=1 ))
+			func_name_ref=$(echo ${part}[$p])
+			if [[ "${!func_name_ref}" != \#* ]]
+			then
+				(( ${part}_activation[$p]=1 ))
+			fi
 			(( p += 1 ))
 		done
         fi
