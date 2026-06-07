@@ -27,8 +27,10 @@ We test what others ignore:
 - **Integer Extremes:** Full coverage for `INT_MIN`, `INT_MAX`, and `unsigned` overflows.
 - **Empty Inputs:** Handing `""`, size `0`, and empty lists gracefully.
 
-### ⚡ Optimized Performance: Fast Mode
-Large test suites can be slow. Libft-God introduces **Turbo Mode (`-fast`)**, an optimized engine that runs memory leak detection (Valgrind/Leaks) in a "one-shot" batch per function. This reduces execution time by up to **90%** while maintaining 100% accuracy.
+### ⚡ Optimized Performance: Default Batch Mode
+Large test suites can be slow. Libft-God uses **Batch Mode** by default, an optimized engine that runs memory leak detection (Valgrind/Leaks) in a "one-shot" batch per function. This reduces execution time by up to **90%** while maintaining 100% accuracy.
+
+If you need granular leak detection for debugging, you can use **Granular Mode (`-slow`)** to run leaks on every single test case.
 
 ---
 
@@ -62,18 +64,8 @@ The tester needs to know where your source code is.
    PATH_LIBFT="/path/to/your/libft" #(pwd)
    ```
 
-> **BEFORE TEST**
->
-> **In your Makefile, you can use your SRCS only test:
-> 
-> SRCS        := **#** ft_isdigit.c ft_strlen.c ft_isalpha.c ft_isalpha.c...
->
-> The point is **#**, don't forget the **#**
-> 
-
-
 ### 3. Basic Execution
-Run everything:
+Run everything (High speed by default):
 ```bash
 bash grademe.sh
    or
@@ -87,11 +79,11 @@ bash grademe.sh ft_split
 ./grademe.sh ft_split
 ```
 
-Run with **Turbo Mode** (High speed):
+Run with **Granular Mode** (Detailed leak detection):
 ```bash
-bash grademe.sh -fast
+bash grademe.sh -slow
    or
-./grademe.sh -fast
+./grademe.sh -slow
 ```
 
 ---
@@ -101,7 +93,7 @@ bash grademe.sh -fast
 | Flag | Description |
 | :--- | :--- |
 | `-h`, `--help` | Display the manual. |
-| `-fast` | **Turbo Mode:** Runs leak detection once per function (9x faster). |
+| `-slow` | **Granular Mode:** Runs leak detection for every individual test case (slower). |
 | `-a`, `--about` | Display the **Pleb_42** tribute page and ASCII art. |
 | `-n` | Skip **Norminette** check. |
 | `-f` | Skip **Forbidden Functions** check. |
