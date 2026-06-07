@@ -157,11 +157,7 @@ do
 	        nb_func=$(echo ${!tab_part} | wc -w)
 	        while (( p < ${nb_func} ))
 	        do
-					func_name_ref=$(echo ${part}[$p])
-					if [[ "${!func_name_ref}" != \#* ]]
-					then
-	                	(( ${part}_activation[$p]=1 ))
-					fi
+	                (( ${part}_activation[$p]=1 ))
 	                (( p += 1 ))
 	        done
 	fi
@@ -236,11 +232,7 @@ do
 		nb_func=$(echo ${!tab_part} | wc -w)
 		while (( p < ${nb_func} ))
 		do
-			func_name_ref=$(echo ${part}[$p])
-			if [[ "${!func_name_ref}" != \#* ]]
-			then
-				(( ${part}_activation[$p]=1 ))
-			fi
+			(( ${part}_activation[$p]=1 ))
 			(( p += 1 ))
 		done
         fi

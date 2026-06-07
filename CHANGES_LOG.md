@@ -1,6 +1,6 @@
 # Changes Log - Libft-God (2026 Edition)
 
-## [2026-06-06] - No-Makefile Mode & Skip Mechanism
+## [2026-06-06] - No-Makefile Mode
 
 ### Added
 - **No-Makefile Mode (`-M` flag)**: 
@@ -13,7 +13,6 @@
 ### Modified
 - **`grademe.sh`**:
   - Implemented logic to parse the `-M` flag.
-  - Enhanced activation loops to detect and skip functions prefixed with `#` in the function arrays.
 - **`srcs/check_compilation.sh`**:
   - Updated the `compilation` function to check for `OPT_NO_MAKEFILE`.
   - If active, it links the `.c` file directly instead of using `libft.a`.
