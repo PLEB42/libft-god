@@ -36,6 +36,8 @@ do
 		"-d")				DIRECTORY=1 ;;
 		"-s")				OPT_NO_SEARCH=1 ;;
 		"-m")				OPT_FULL_MAKEFILE=1 ;;
+		"-M")				OPT_NO_MAKEFILE=1
+							OPT_NO_LIBRARY=1 ;;
 		"-l")				OPT_NO_LIBRARY=1 ;;
 		"-c")				OPT_NO_COLOR=1 ;;
 		"-f")				OPT_NO_FORBIDDEN=1 ;;
