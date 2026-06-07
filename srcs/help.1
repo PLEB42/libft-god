@@ -47,6 +47,9 @@ Disable searching Makefile and header file
 .B -m
 When compiling library, test all the Makefile's rules (all, clean, fclean, re, bonus)
 .TP
+.B -M
+No-Makefile mode: compiles individual .c files directly with the test main, skipping libft.a. Useful when one function fails to compile and breaks the entire library.
+.TP
 .B -l
 Disable compiling library
 .TP

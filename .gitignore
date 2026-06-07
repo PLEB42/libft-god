@@ -28,3 +28,4 @@ my_config.sh
 .vscode/
 .idea/
 *.dSYM/
+ignored_docs/

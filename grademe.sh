@@ -36,6 +36,8 @@ do
 		"-d")				DIRECTORY=1 ;;
 		"-s")				OPT_NO_SEARCH=1 ;;
 		"-m")				OPT_FULL_MAKEFILE=1 ;;
+		"-M")				OPT_NO_MAKEFILE=1
+							OPT_NO_LIBRARY=1 ;;
 		"-l")				OPT_NO_LIBRARY=1 ;;
 		"-c")				OPT_NO_COLOR=1 ;;
 		"-f")				OPT_NO_FORBIDDEN=1 ;;
@@ -94,6 +96,29 @@ done
 
 source "${PATH_TEST}"/srcs/colors.sh
 source "${PATH_TEST}"/srcs/check_cheat.sh
+
+# Automatic Update Check
+if [ ${OPT_NO_UPDATE} -eq 0 ]
+then
+	printf "${COLOR_INFO}Checking for updates...${DEFAULT}\n"
+	git -C "${PATH_TEST}" fetch origin main > /dev/null 2>&1
+	LOCAL=$(git -C "${PATH_TEST}" rev-parse HEAD)
+	REMOTE=$(git -C "${PATH_TEST}" rev-parse origin/main 2>/dev/null)
+
+	if [ "$LOCAL" != "$REMOTE" ] && [ ! -z "$REMOTE" ]; then
+		printf "${COLOR_WARNING}A new version of Libft-God is available!${DEFAULT}\n"
+		printf "Do you want to update now? [y/N] "
+		read -n 1 -r
+		printf "\n"
+		if [[ $REPLY =~ ^[Yy]$ ]]; then
+			printf "${COLOR_INFO}Updating...${DEFAULT}\n"
+			git -C "${PATH_TEST}" pull origin main > /dev/null 2>&1
+		else
+			printf "${COLOR_INFO}Skipping update.${DEFAULT}\n"
+		fi
+	fi
+fi
+
 source "${PATH_TEST}"/srcs/check_compilation.sh
 source "${PATH_TEST}"/srcs/check_file.sh
 source "${PATH_TEST}"/srcs/check_norme.sh
@@ -126,6 +151,19 @@ then
 fi
 
 source "${PATH_TEST}"/my_config.sh
+
+# Path Hierarchy Logic
+PARENT_PATH="$(dirname "${PATH_TEST}")"
+if [ -f "${PARENT_PATH}/Makefile" ] || [ -f "${PARENT_PATH}/libft.h" ]
+then
+	# Superior folder identified as libft (Priority 1)
+	PATH_LIBFT="${PARENT_PATH}"
+elif [ -z "${PATH_LIBFT}" ]
+then
+	# No superior folder found and no user path set
+	printf "${RED}Error: PATH_LIBFT is not set in my_config.sh and no libft found in parent directory.${DEFAULT}\n"
+	exit
+fi
 
 if [ ${CUSTOM_DIRECTORY} -eq 1 ]
 then
