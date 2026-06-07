@@ -46,8 +46,8 @@ diff_test()
 		local output_file="$test_dir/user_output_test$text"
 		local expected_file="$test_dir/test$text.output"
 
-		if [ ${OPT_FAST} -eq 0 ]; then
-			# --- ORIGINAL MODE: Leak check PER TEST ---
+		if [ ${OPT_SLOW} -eq 1 ]; then
+			# --- GRANULAR MODE: Leak check PER TEST (Old default) ---
 			if [ "$(uname)" == "Darwin" ]; then
 				leaks_cmd="leaks -quiet -atExit --"
 			elif command -v valgrind &> /dev/null; then
@@ -88,7 +88,7 @@ diff_test()
 				fi
 			fi
 		else
-			# --- FAST MODE: No leak check inside loop ---
+			# --- DEFAULT BATCH MODE: No leak check inside loop (High speed) ---
 			if [ $(( $k%2 )) -eq 1 ] && [[ "$1" =~ ^ft_put.*_fd\.c$ ]]; then
 				"${PATH_TEST}"/user_exe $k > /dev/null 2> "$output_file"
 			else
@@ -121,8 +121,8 @@ diff_test()
 		let "k += 1"
 	done
 
-	# --- FAST MODE: Optimized Leak Check (Runs ONCE per function) ---
-	if [ ${OPT_FAST} -eq 1 ]; then
+	# --- DEFAULT BATCH MODE: Optimized Leak Check (Runs ONCE per function) ---
+	if [ ${OPT_SLOW} -eq 0 ]; then
 		local valgrind_log="/tmp/leaks_libft_all_$$.log"
 		local leak_status=0
 		
