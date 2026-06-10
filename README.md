@@ -50,7 +50,7 @@ If you need granular leak detection for debugging, you can use **Granular Mode (
 ### 1. Installation
 Clone the tester into a directory alongside or inside your `libft`:
 ```bash
-git clone https://github.com/Pleb-42/libft-god.git
+git clone https://github.com/PLEB42/libft-god.git
 ```
 
 ### 2. Configuration
